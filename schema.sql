@@ -1,6 +1,10 @@
 -- Core schema for the SQL-shape test repo.
+-- Defines the baseline tables (projects, todos, tags) for the todo data model.
 -- Tables are created in dependency order so foreign keys resolve:
 -- projects first, then todos (references projects), then tags.
+--
+-- Incremental changes to this schema live in numbered migration files
+-- (e.g. 0001_add_todo_tags.sql), applied in order after this baseline.
 
 CREATE TABLE projects (
     id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
