@@ -40,41 +40,41 @@
       "name": "projects",
       "kind": "table",
       "file": "schema.sql",
-      "line": 5,
+      "line": 9,
       "columns": [
         {
           "name": "id",
           "kind": "column",
           "signature": "id UUID PRIMARY KEY DEFAULT gen_random_uuid()",
-          "line": 6,
+          "line": 10,
           "ref": null
         },
         {
           "name": "owner_id",
           "kind": "column",
           "signature": "owner_id UUID NOT NULL REFERENCES auth.users (id) ON DELETE CASCADE",
-          "line": 7,
+          "line": 11,
           "ref": "auth.users(id)"
         },
         {
           "name": "name",
           "kind": "column",
           "signature": "name TEXT NOT NULL",
-          "line": 8,
+          "line": 12,
           "ref": null
         },
         {
           "name": "color",
           "kind": "column",
           "signature": "color TEXT DEFAULT '#8b7bff'",
-          "line": 9,
+          "line": 13,
           "ref": null
         },
         {
           "name": "created_at",
           "kind": "column",
           "signature": "created_at TIMESTAMPTZ NOT NULL DEFAULT now()",
-          "line": 10,
+          "line": 14,
           "ref": null
         }
       ]
@@ -83,62 +83,62 @@
       "name": "todos",
       "kind": "table",
       "file": "schema.sql",
-      "line": 13,
+      "line": 17,
       "columns": [
         {
           "name": "id",
           "kind": "column",
           "signature": "id UUID PRIMARY KEY DEFAULT gen_random_uuid()",
-          "line": 14,
+          "line": 18,
           "ref": null
         },
         {
           "name": "project_id",
           "kind": "column",
           "signature": "project_id UUID NOT NULL REFERENCES projects (id) ON DELETE CASCADE",
-          "line": 15,
+          "line": 19,
           "ref": "projects(id)"
         },
         {
           "name": "title",
           "kind": "column",
           "signature": "title TEXT NOT NULL",
-          "line": 16,
+          "line": 20,
           "ref": null
         },
         {
           "name": "done",
           "kind": "column",
           "signature": "done BOOLEAN NOT NULL DEFAULT false",
-          "line": 17,
+          "line": 21,
           "ref": null
         },
         {
           "name": "due_date",
           "kind": "column",
           "signature": "due_date DATE",
-          "line": 18,
+          "line": 22,
           "ref": null
         },
         {
           "name": "position",
           "kind": "column",
           "signature": "position INTEGER NOT NULL DEFAULT 0",
-          "line": 19,
+          "line": 23,
           "ref": null
         },
         {
           "name": "created_at",
           "kind": "column",
           "signature": "created_at TIMESTAMPTZ NOT NULL DEFAULT now()",
-          "line": 20,
+          "line": 24,
           "ref": null
         },
         {
           "name": "title_not_blank",
           "kind": "constraint",
           "signature": "CONSTRAINT title_not_blank CHECK (length(trim(title)) > 0)",
-          "line": 21,
+          "line": 25,
           "ref": null
         }
       ]
@@ -147,20 +147,20 @@
       "name": "tags",
       "kind": "table",
       "file": "schema.sql",
-      "line": 24,
+      "line": 28,
       "columns": [
         {
           "name": "id",
           "kind": "column",
           "signature": "id UUID PRIMARY KEY DEFAULT gen_random_uuid()",
-          "line": 25,
+          "line": 29,
           "ref": null
         },
         {
           "name": "label",
           "kind": "column",
           "signature": "label TEXT NOT NULL UNIQUE",
-          "line": 26,
+          "line": 30,
           "ref": null
         }
       ]
